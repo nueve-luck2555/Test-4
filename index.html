@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCHIVE TERMINAL</title>
+
+<style>
+body{
+    margin:0;
+    background:#050505;
+    color:#6dff6d;
+    font-family:Consolas, monospace;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.box{
+    width:420px;
+    border:1px solid #6dff6d;
+    padding:30px;
+    box-shadow:0 0 20px rgba(0,255,0,.15);
+}
+
+h1{
+    text-align:center;
+    letter-spacing:4px;
+    font-size:24px;
+}
+
+p{
+    color:#8aff8a;
+}
+
+input{
+    width:100%;
+    background:black;
+    color:#6dff6d;
+    border:1px solid #6dff6d;
+    padding:12px;
+    margin-top:15px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    background:#111;
+    color:#6dff6d;
+    border:1px solid #6dff6d;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d1d1d;
+}
+
+#message{
+    margin-top:20px;
+    min-height:24px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>ARCHIVE TERMINAL</h1>
+
+<p>
+Database Status: RESTRICTED
+</p>
+
+<p>
+Enter Authorization Code
+</p>
+
+<input
+id="password"
+type="password"
+placeholder="Authorization Code">
+
+<button onclick="checkPassword()">
+VERIFY
+</button>
+
+<div id="message"></div>
+
+</div>
+
+<script>
+
+function checkPassword(){
+
+const code="SAY-GEX";
+
+const input=document.getElementById("password").value;
+
+const message=document.getElementById("message");
+
+if(input===code){
+
+message.innerHTML="ACCESS GRANTED.<br>Redirecting...";
+
+setTimeout(function(){
+
+window.location.href="https://drive.google.com/drive/folders/1p7pM3kf28HTcWOcj_y5vOB-0Ku64THOu";
+
+},1800);
+
+}
+
+else{
+
+message.innerHTML="ACCESS DENIED.";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
