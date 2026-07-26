@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARCHIVE TERMINAL</title>
+<title>MEMORY LOG</title>
 
 <style>
+
 body{
     margin:0;
     background:#050505;
@@ -18,7 +19,7 @@ body{
 }
 
 .box{
-    width:420px;
+    width:430px;
     border:1px solid #6dff6d;
     padding:30px;
     box-shadow:0 0 20px rgba(0,255,0,.15);
@@ -26,44 +27,56 @@ body{
 
 h1{
     text-align:center;
-    letter-spacing:4px;
-    font-size:24px;
+    letter-spacing:5px;
+    margin-bottom:25px;
 }
 
-p{
-    color:#8aff8a;
+.info{
+    margin-bottom:18px;
+    line-height:1.5;
+    color:#9aff9a;
+}
+
+.label{
+    color:#6dff6d;
+    font-weight:bold;
 }
 
 input{
     width:100%;
+    box-sizing:border-box;
     background:black;
     color:#6dff6d;
     border:1px solid #6dff6d;
     padding:12px;
     margin-top:15px;
-    font-size:16px;
+    font-size:15px;
+    font-family:Consolas, monospace;
 }
 
 button{
     width:100%;
-    margin-top:20px;
+    margin-top:15px;
     padding:12px;
     background:#111;
     color:#6dff6d;
     border:1px solid #6dff6d;
     cursor:pointer;
+    font-family:Consolas, monospace;
 }
 
 button:hover{
-    background:#1d1d1d;
+    background:#1b1b1b;
 }
 
 #message{
     margin-top:20px;
-    min-height:24px;
+    min-height:40px;
+    color:#9aff9a;
+    line-height:1.5;
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -72,22 +85,31 @@ button:hover{
 
 <h1>MEMORY LOG</h1>
 
-<p>
-Database Status: RESTRICTED
-</p>
+<div class="info">
+<span class="label">DATABASE STATUS</span><br>
+RESTRICTED
+</div>
 
-<p>
-SUBJECT: LINDSAY EVERHART
-</p>
+<div class="info">
+<span class="label">SUBJECT</span><br>
+<del>Lindsay Everhart</del><br>
+ARCHIVE
+</div>
 
-<p>
-STATUS: SEALED
-</p>
+<div class="info">
+<span class="label">FILE STATUS</span><br>
+SEALED
+</div>
+
+<div class="info">
+<span class="label">CLEARANCE LEVEL</span><br>
+Authorization Required
+</div>
 
 <input
 id="password"
 type="password"
-placeholder="Authorization Code">
+placeholder="Enter Authorization Code">
 
 <button onclick="checkPassword()">
 VERIFY
@@ -101,27 +123,27 @@ VERIFY
 
 function checkPassword(){
 
-const code="SAY-GEX";
+const code = "SAY-GEX";
 
-const input=document.getElementById("password").value;
+const input = document.getElementById("password").value.trim();
 
-const message=document.getElementById("message");
+const message = document.getElementById("message");
 
-if(input===code){
+if(input === code){
 
-message.innerHTML="ACCESS GRANTED.<br>Redirecting...";
+message.innerHTML =
+"ACCESS GRANTED.<br><br>Decrypting memory log...<br>Please wait.";
 
 setTimeout(function(){
 
 window.location.href="https://drive.google.com/drive/folders/1p7pM3kf28HTcWOcj_y5vOB-0Ku64THOu";
 
-},1800);
+},2200);
 
-}
+}else{
 
-else{
-
-message.innerHTML="ACCESS DENIED.";
+message.innerHTML =
+"ACCESS DENIED.<br>Invalid authorization code.";
 
 }
 
